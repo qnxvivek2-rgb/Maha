@@ -29,13 +29,88 @@ def admin_headers(admin_token):
 
 # ===== Services =====
 class TestServices:
-    def test_get_services_returns_six(self):
+    def test_get_services_returns_seeded(self):
         r = requests.get(f"{API}/services", timeout=30)
         assert r.status_code == 200
         data = r.json()
         assert isinstance(data, list)
-        assert len(data) == 6
+        assert len(data) >= 6
         assert {"id", "name", "price", "unit", "description"} <= set(data[0].keys())
+        names = [s["name"] for s in data]
+        assert "Wash & Iron" in names
+
+
+# ===== Admin Services CRUD =====
+class TestAdminServicesCRUD:
+    created_id = None
+
+    def test_create_requires_auth(self):
+        r = requests.post(f"{API}/admin/services", json={"name": "TEST_NoAuth", "price": 10}, timeout=30)
+        assert r.status_code == 401
+
+    def test_create_service(self, admin_headers):
+        payload = {"name": "TEST_Curtain Wash", "price": 99.5, "unit": "per piece", "description": "TEST desc"}
+        r = requests.post(f"{API}/admin/services", headers=admin_headers, json=payload, timeout=30)
+        assert r.status_code == 200, r.text
+        data = r.json()
+        assert data["name"] == payload["name"]
+        assert data["price"] == 99.5
+        assert data["unit"] == "per piece"
+        assert "id" in data and isinstance(data["id"], str)
+        TestAdminServicesCRUD.created_id = data["id"]
+
+        # Verify GET reflects creation
+        r2 = requests.get(f"{API}/services", timeout=30)
+        ids = [s["id"] for s in r2.json()]
+        assert data["id"] in ids
+
+    def test_update_service(self, admin_headers):
+        sid = TestAdminServicesCRUD.created_id
+        assert sid
+        r = requests.patch(f"{API}/admin/services/{sid}", headers=admin_headers, json={"price": 149.0, "name": "TEST_Curtain Premium"}, timeout=30)
+        assert r.status_code == 200
+        data = r.json()
+        assert data["price"] == 149.0
+        assert data["name"] == "TEST_Curtain Premium"
+        # other fields preserved
+        assert data["unit"] == "per piece"
+
+        # Verify persistence via public GET
+        r2 = requests.get(f"{API}/services", timeout=30)
+        match = next((s for s in r2.json() if s["id"] == sid), None)
+        assert match is not None
+        assert match["price"] == 149.0
+        assert match["name"] == "TEST_Curtain Premium"
+
+    def test_update_empty_body_returns_400(self, admin_headers):
+        sid = TestAdminServicesCRUD.created_id
+        r = requests.patch(f"{API}/admin/services/{sid}", headers=admin_headers, json={}, timeout=30)
+        assert r.status_code == 400
+
+    def test_update_unknown_returns_404(self, admin_headers):
+        r = requests.patch(f"{API}/admin/services/does-not-exist", headers=admin_headers, json={"price": 10}, timeout=30)
+        assert r.status_code == 404
+
+    def test_delete_service(self, admin_headers):
+        sid = TestAdminServicesCRUD.created_id
+        r = requests.delete(f"{API}/admin/services/{sid}", headers=admin_headers, timeout=30)
+        assert r.status_code == 200
+
+        # Verify removal from public GET
+        r2 = requests.get(f"{API}/services", timeout=30)
+        ids = [s["id"] for s in r2.json()]
+        assert sid not in ids
+
+    def test_delete_unknown_returns_404(self, admin_headers):
+        r = requests.delete(f"{API}/admin/services/does-not-exist", headers=admin_headers, timeout=30)
+        assert r.status_code == 404
+
+    def test_cleanup_test_services(self, admin_headers):
+        """Ensure no leftover TEST_ services."""
+        r = requests.get(f"{API}/services", timeout=30)
+        for s in r.json():
+            if s["name"].startswith("TEST_"):
+                requests.delete(f"{API}/admin/services/{s['id']}", headers=admin_headers, timeout=30)
 
 
 # ===== Admin login =====

@@ -5,6 +5,8 @@ import { toast } from "sonner";
 import { Loader2, LogOut, RefreshCw, Trash2, MessageCircle } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { Badge } from "../components/ui/badge";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "../components/ui/tabs";
+import ServicesAdmin from "../components/ServicesAdmin";
 import { buildBookingMessage, buildWhatsappUrl } from "../lib/business";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
@@ -96,9 +98,7 @@ export default function AdminDashboard() {
       <header className="bg-white border-b border-neutral-200 sticky top-0 z-30">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-black border-2 flex items-center justify-center" style={{ borderColor: "#F5A623" }}>
-              <span className="font-heading font-black" style={{ color: "#F5A623" }}>MB</span>
-            </div>
+            <img src="/mb-logo.png" alt="Mahaveer Brothers" className="h-10 w-10 rounded-full object-contain bg-black" />
             <div>
               <div className="font-heading font-bold text-neutral-900">Admin Dashboard</div>
               <div className="text-xs text-neutral-500">Mahaveer Brothers</div>
@@ -130,7 +130,14 @@ export default function AdminDashboard() {
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl border border-neutral-200 overflow-hidden">
+        <Tabs defaultValue="bookings" className="w-full">
+          <TabsList className="h-11 p-1 bg-neutral-200/60" data-testid="admin-tabs">
+            <TabsTrigger value="bookings" className="px-5 text-sm" data-testid="tab-bookings">Bookings</TabsTrigger>
+            <TabsTrigger value="services" className="px-5 text-sm" data-testid="tab-services">Services & Pricing</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="bookings" className="mt-5">
+            <div className="bg-white rounded-2xl border border-neutral-200 overflow-hidden">
           <div className="px-5 py-4 border-b border-neutral-200 flex items-center justify-between">
             <div className="font-heading font-bold text-neutral-900">All Bookings</div>
             <div className="text-xs text-neutral-500">{bookings.length} records</div>
@@ -211,7 +218,13 @@ export default function AdminDashboard() {
               </table>
             </div>
           )}
-        </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="services" className="mt-5">
+            <ServicesAdmin />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );

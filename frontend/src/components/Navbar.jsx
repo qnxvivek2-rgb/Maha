@@ -1,5 +1,5 @@
 import React from "react";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BUSINESS } from "../lib/business";
 
@@ -10,15 +10,32 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-neutral-200" data-testid="site-navbar">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 h-16 md:h-20 flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-3" data-testid="navbar-logo">
-          <div className="h-10 w-10 md:h-11 md:w-11 rounded-full bg-black flex items-center justify-center border-2 border-brand-gold" style={{ borderColor: "#F5A623" }}>
-            <span className="font-heading font-black text-lg" style={{ color: "#F5A623" }}>MB</span>
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-neutral-200" data-testid="site-navbar">
+      {/* Top address bar */}
+      <div className="bg-neutral-950 text-white text-[11px] md:text-xs">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-2 flex flex-col md:flex-row md:items-center md:justify-between gap-1">
+          <div className="flex items-center gap-2 justify-center md:justify-start">
+            <MapPin className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "#F5A623" }} />
+            <span className="tracking-wide text-center md:text-left" data-testid="topbar-address">{BUSINESS.address}</span>
           </div>
+          <div className="hidden md:flex items-center gap-5">
+            <a href={`tel:+91${BUSINESS.phone}`} className="inline-flex items-center gap-1.5 hover:text-amber-300" data-testid="topbar-phone">
+              <Phone className="w-3.5 h-3.5" /> +91 {BUSINESS.phone}
+            </a>
+            <a href={`mailto:${BUSINESS.email}`} className="inline-flex items-center gap-1.5 hover:text-amber-300" data-testid="topbar-email">
+              <Mail className="w-3.5 h-3.5" /> {BUSINESS.email}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main nav */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 h-20 md:h-24 flex items-center justify-between gap-4">
+        <Link to="/" className="flex items-center gap-3" data-testid="navbar-logo">
+          <img src="/mb-logo.png" alt="Mahaveer Brothers" className="h-14 w-14 md:h-16 md:w-16 rounded-full object-contain bg-black" />
           <div className="leading-tight">
-            <div className="font-heading font-bold text-base md:text-lg" style={{ color: "#D92328" }}>Mahaveer Brothers</div>
-            <div className="text-[10px] md:text-xs uppercase tracking-widest text-neutral-500">Laundry & Drycleaning</div>
+            <div className="font-heading font-bold text-base md:text-xl tracking-tight" style={{ color: "#D92328" }}>Mahaveer Brothers</div>
+            <div className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-neutral-500">Trading & Service Co.</div>
           </div>
         </Link>
 
@@ -30,13 +47,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a
-            href={`tel:+91${BUSINESS.phone}`}
-            className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-neutral-700 hover:text-black"
-            data-testid="navbar-call"
-          >
-            <Phone className="w-4 h-4" /> {BUSINESS.phone}
-          </a>
           <button
             onClick={() => scrollTo("book")}
             className="inline-flex items-center gap-2 rounded-full px-4 md:px-5 py-2 md:py-2.5 text-sm font-semibold text-white shadow-sm hover:-translate-y-0.5 transition-all"
@@ -47,10 +57,11 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-      <div className="bg-black text-white text-[11px] md:text-xs">
+
+      {/* Free pickup banner */}
+      <div className="bg-red-600 text-white text-[11px] md:text-xs">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-1.5 flex items-center justify-center gap-2 text-center">
-          <MapPin className="w-3 h-3" style={{ color: "#F5A623" }} />
-          <span className="tracking-wide">FREE PICKUP & DROP across Deoria · Open 8 AM – 9 PM · Same-day delivery available</span>
+          <span className="font-semibold tracking-wide">FREE PICKUP & DROP across Deoria · Open 8 AM – 9 PM · Same-day delivery available</span>
         </div>
       </div>
     </header>

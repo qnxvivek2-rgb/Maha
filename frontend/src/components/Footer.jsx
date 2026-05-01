@@ -8,9 +8,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <div className="h-12 w-12 rounded-full bg-black border-2 flex items-center justify-center" style={{ borderColor: "#F5A623" }}>
-              <span className="font-heading font-black text-lg" style={{ color: "#F5A623" }}>MB</span>
-            </div>
+            <img src="/mb-logo.png" alt="Mahaveer Brothers" className="h-14 w-14 rounded-full object-contain bg-black border-2" style={{ borderColor: "#F5A623" }} />
             <div>
               <div className="font-heading font-bold text-lg" style={{ color: "#D92328" }}>Mahaveer Brothers</div>
               <div className="text-[11px] uppercase tracking-widest text-white/50">Trading & Service Co.</div>
