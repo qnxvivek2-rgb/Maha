@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "name": "Mahaveer Brothers Trading And Service Company",
+    "domain": "Laundry & Dry Cleaning",
+    "target_audience": "Local Indian tier-2/3 city customers",
+    "vibe": "Clean, Professional, Trustworthy, Modern, Fast, Premium yet Accessible",
+    "tagline": "BEST LAUNDRY AND DRYCLEANING SERVICE WITH FREE PICKUP AND DROP"
+  },
+  "theme": {
+    "mode": "light",
+    "archetype": "Archetype 4 (Swiss & High-Contrast) - Modified with brand colors (Red/Gold/Black on White)"
+  },
+  "colors": {
+    "primary": "#D92328",
+    "primary_hover": "#B31C20",
+    "secondary_gold": "#F5A623",
+    "whatsapp_green": "#25D366",
+    "whatsapp_hover": "#20BD5A",
+    "background_main": "#FFFFFF",
+    "background_alt": "#F9FAFB",
+    "surface": "#FFFFFF",
+    "text_main": "#0A0A0A",
+    "text_muted": "#525252",
+    "border": "#E5E7EB",
+    "dark_badge": "#0A0A0A"
+  },
+  "typography": {
+    "heading_font": "Outfit",
+    "body_font": "Work Sans",
+    "scales": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-text_main",
+      "h2": "text-3xl md:text-4xl font-bold tracking-tight text-text_main",
+      "h3": "text-xl md:text-2xl font-semibold text-text_main",
+      "body": "text-base md:text-lg leading-relaxed text-text_muted",
+      "small_label": "text-sm tracking-[0.2em] uppercase font-bold text-primary"
+    }
+  },
+  "layout_spacing": {
+    "container_padding": "px-4 md:px-8 lg:px-12 max-w-7xl mx-auto",
+    "section_gap": "py-16 md:py-24",
+    "bento_gap": "gap-6 md:gap-8",
+    "borderRadius": "rounded-2xl"
+  },
+  "components": {
+    "hero": "High-contrast layout. Large 'Outfit' typography. Prominent WhatsApp Green CTA button. Image should have a slight vignette or clean crop so text pops. Avoid generic centered layouts; use an asymmetrical 60/40 split.",
+    "buttons": "Rounded-full for main CTAs (approachable). High contrast text. Primary booking buttons should be WhatsApp green. Secondary buttons black or red. Include hover translation (e.g. -translate-y-1) and drop shadow.",
+    "services_grid": "Bento Grid approach (Tetris grid). Mix of tall and wide cards. Cardless style with subtle 1px border or off-white background (#F9FAFB). Use Lucide icons sized generously.",
+    "booking_form": "Shadcn UI based but customized. Clean white card with 1px border, inputs should have clear focus states (ring-primary). Button is full width WhatsApp Green.",
+    "how_it_works": "Horizontal or zig-zag step flow. Use the Gold/Orange accent for numbering (e.g., 01, 02) in large display font.",
+    "admin_dashboard": "Clean, dense sidebar layout. Use Shadcn Tables for managing booking statuses (Pending, Picked-Up, In-Progress, Delivered). Keep the dashboard utilitarian (black/white/gray).",
+    "floating_whatsapp": "Fixed bottom-right, z-50, shadow-2xl, pulse animation to draw attention."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "style": "Clean, line-based, 2px stroke. Colored with primary red or secondary gold."
+  },
+  "media": {
+    "hero": "https://images.unsplash.com/photo-1777027517906-071feb3170f3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHw0fHxmcmVzaCUyMGxhdW5kcnl8ZW58MHx8fHwxNzc3NjM2MDg5fDA&ixlib=rb-4.1.0&q=85",
+    "services": {
+      "wash_iron": "https://images.unsplash.com/photo-1777027517891-b58dfd4b54a8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwzfHxmcmVzaCUyMGxhdW5kcnl8ZW58MHx8fHwxNzc3NjM2MDg5fDA&ixlib=rb-4.1.0&q=85",
+      "ironing": "https://images.unsplash.com/photo-1489274495757-95c7c837b101?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxpcm9uaW5nJTIwY2xvdGhlc3xlbnwwfHx8fDE3Nzc2MzYwODl8MA&ixlib=rb-4.1.0&q=85",
+      "dry_clean": "https://images.unsplash.com/photo-1549037173-e3b717902c57?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxkcnklMjBjbGVhbmluZ3xlbnwwfHx8fDE3Nzc2MzYwODl8MA&ixlib=rb-4.1.0&q=85",
+      "shoe_clean": "https://images.pexels.com/photos/4914582/pexels-photo-4914582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "testimonials_bg": "https://images.unsplash.com/photo-1769253763290-3e213990ed22?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwyfHxmcmVzaCUyMGxhdW5kcnl8ZW58MHx8fHwxNzc3NjM2MDg5fDA&ixlib=rb-4.1.0&q=85"
+  },
+  "testing": {
+    "instructions": "All interactive and key informational elements MUST include a `data-testid` attribute in kebab-case format based on role (e.g., `data-testid=\"hero-whatsapp-booking-btn\"`)."
+  },
+  "instructions_to_main_agent": [
+    "Use standard HTML/Tailwind for the landing page layout to ensure bento grids and spacing aren't restricted by standard component constraints.",
+    "Use Shadcn UI primarily for forms (Booking Form, Admin Login) and the Admin Dashboard (Tables, Dialogs, Selects).",
+    "WhatsApp integration is CRITICAL. The booking form must trigger a backend POST and simultaneously redirect the user to WhatsApp with a prefilled message containing their booking details.",
+    "The Floating WhatsApp button must be visible at all times.",
+    "Typography: Use `Outfit` for all headings and `Work Sans` for body text. Enforce this via Tailwind classes or base CSS.",
+    "Admin dashboard should be protected and reside under /admin.",
+    "Ensure the hero section highlights the free pickup and drop off prominently."
+  ]
+}
