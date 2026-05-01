@@ -34,8 +34,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-3" data-testid="navbar-logo">
           <img src="/mb-logo.png" alt="Mahaveer Brothers" className="h-14 w-14 md:h-16 md:w-16 rounded-full object-contain bg-black" />
           <div className="leading-tight">
-            <div className="font-heading font-bold text-base md:text-xl tracking-tight" style={{ color: "#D92328" }}>Mahaveer Brothers</div>
-            <div className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-neutral-500">Trading &amp; Service Co.</div>
+            <div className="font-heading font-bold text-base md:text-xl tracking-tight" style={{ color: "#D92328" }}>MAHAVEER BROTHERS</div>
             <div className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-neutral-600 mt-0.5 font-semibold">Laundry <span style={{ color: "#F5A623" }}>|</span> Dryclean Polish <span style={{ color: "#F5A623" }}>|</span> Steam Iron</div>
           </div>
         </Link>

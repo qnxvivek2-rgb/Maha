@@ -10,8 +10,8 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <img src="/mb-logo.png" alt="Mahaveer Brothers" className="h-14 w-14 rounded-full object-contain bg-black border-2" style={{ borderColor: "#F5A623" }} />
             <div>
-              <div className="font-heading font-bold text-lg" style={{ color: "#D92328" }}>Mahaveer Brothers</div>
-              <div className="text-[11px] uppercase tracking-widest text-white/50">Trading & Service Co.</div>
+              <div className="font-heading font-bold text-lg" style={{ color: "#D92328" }}>MAHAVEER BROTHERS</div>
+              <div className="text-[11px] uppercase tracking-widest text-white/50">Laundry · Dryclean · Steam Iron</div>
             </div>
           </div>
           <p className="mt-5 text-sm text-white/60 leading-relaxed max-w-md">

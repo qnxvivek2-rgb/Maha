@@ -101,7 +101,7 @@ export default function AdminDashboard() {
             <img src="/mb-logo.png" alt="Mahaveer Brothers" className="h-10 w-10 rounded-full object-contain bg-black" />
             <div>
               <div className="font-heading font-bold text-neutral-900">Admin Dashboard</div>
-              <div className="text-xs text-neutral-500">Mahaveer Brothers</div>
+              <div className="text-xs text-neutral-500">MAHAVEER BROTHERS</div>
             </div>
           </div>
           <div className="flex items-center gap-2">
