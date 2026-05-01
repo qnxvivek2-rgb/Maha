@@ -35,7 +35,8 @@ export default function Navbar() {
           <img src="/mb-logo.png" alt="Mahaveer Brothers" className="h-14 w-14 md:h-16 md:w-16 rounded-full object-contain bg-black" />
           <div className="leading-tight">
             <div className="font-heading font-bold text-base md:text-xl tracking-tight" style={{ color: "#D92328" }}>Mahaveer Brothers</div>
-            <div className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-neutral-500">Trading & Service Co.</div>
+            <div className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-neutral-500">Trading &amp; Service Co.</div>
+            <div className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-neutral-600 mt-0.5 font-semibold">Laundry <span style={{ color: "#F5A623" }}>|</span> Dryclean Polish <span style={{ color: "#F5A623" }}>|</span> Steam Iron</div>
           </div>
         </Link>
 
@@ -61,7 +62,7 @@ export default function Navbar() {
       {/* Free pickup banner */}
       <div className="bg-red-600 text-white text-[11px] md:text-xs">
         <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-1.5 flex items-center justify-center gap-2 text-center">
-          <span className="font-semibold tracking-wide">FREE PICKUP & DROP across Deoria · Open 8 AM – 9 PM · Same-day delivery available</span>
+          <span className="font-semibold tracking-wide">FREE PICKUP AND DROP AROUND 40 KM · OPEN 9 AM TO 7 PM</span>
         </div>
       </div>
     </header>

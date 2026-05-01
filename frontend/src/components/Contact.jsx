@@ -46,7 +46,7 @@ export default function Contact() {
               </div>
               <div>
                 <div className="font-semibold text-neutral-900">Hours</div>
-                <div className="text-sm text-neutral-600 mt-1">Mon – Sun · 8:00 AM – 9:00 PM</div>
+                <div className="text-sm text-neutral-600 mt-1">Mon – Sun · 9:00 AM – 7:00 PM</div>
               </div>
             </div>
           </div>

@@ -44,8 +44,8 @@ export default function Hero() {
 
           <div className="mt-10 grid grid-cols-3 gap-4 max-w-lg">
             {[
-              { icon: Truck, label: "Free Pickup & Drop" },
-              { icon: Clock, label: "Same-day available" },
+              { icon: Truck, label: "Pickup within 40 KM" },
+              { icon: Clock, label: "9 AM – 7 PM · Same day" },
               { icon: ShieldCheck, label: "Garments insured" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-start gap-2" data-testid={`hero-feature-${i}`}>

@@ -16,7 +16,7 @@ export default function Pricing({ services = [] }) {
             </p>
             <ul className="mt-7 space-y-3">
               {[
-                "Free pickup & drop within Deoria",
+                "Free pickup & drop within 40 KM",
                 "Same-day delivery available",
                 "100% genuine detergent & solvents",
                 "Damage compensation up to 25% of market value",
