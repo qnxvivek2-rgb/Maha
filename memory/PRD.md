@@ -27,13 +27,13 @@
 - Admin dashboard with stats + status management
 
 ## What's Implemented (2026-05-01)
-- Landing page: Navbar, Hero with WhatsApp CTA, Services grid, How-it-works, Pricing rate card, Booking form (saves to DB + opens WhatsApp), Testimonials, Contact w/ embedded Google Map, Footer
+- Landing page: Navbar (now with **top address bar** showing full address + phone + email, and updated **real brand logo** `/mb-logo.png`), Hero with WhatsApp CTA, Services grid, How-it-works, Pricing rate card, Booking form (saves to DB + opens WhatsApp), Testimonials, Contact w/ embedded Google Map, Footer
 - Booking form: client validation, calendar + time-slots, confirms via WhatsApp
 - Floating WhatsApp button (pulsing)
 - Admin login (`/admin/login`) — admin/admin123
-- Admin dashboard — stats cards, bookings table, inline status select, delete, message-customer-on-WhatsApp shortcut
-- Backend: `/api/services`, `/api/bookings`, `/api/admin/login`, `/api/admin/bookings` (GET, PATCH, DELETE), `/api/admin/stats`
-- Tested 100% (backend pytest + frontend e2e)
+- Admin dashboard — **tabbed view**: Bookings tab (stats cards, bookings table, inline status select, delete, message-customer-on-WhatsApp shortcut) and **Services & Pricing tab** (add new service, edit name/price/unit/description, delete)
+- Backend: `/api/services` (DB-backed, auto-seeded), `/api/bookings`, `/api/admin/login`, `/api/admin/bookings` (GET, PATCH, DELETE), `/api/admin/services` (POST, PATCH, DELETE), `/api/admin/stats`
+- Tested 100% across two iterations (20/20 pytest + full e2e UI)
 
 ## Backlog (P1/P2)
 - **P1**: Multi-image gallery; richer testimonials with photos; Google review embed
