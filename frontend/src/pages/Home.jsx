@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import GoogleReviews from "../components/GoogleReviews";
 import Services from "../components/Services";
 import HowItWorks from "../components/HowItWorks";
 import Pricing from "../components/Pricing";
@@ -24,6 +25,7 @@ export default function Home() {
     <div className="min-h-screen bg-white" data-testid="home-page">
       <Navbar />
       <Hero />
+      <GoogleReviews />
       <Services services={services} />
       <HowItWorks />
       <Pricing services={services} />

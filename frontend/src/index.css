@@ -83,3 +83,18 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 /* Hide scrollbar but keep functionality on certain places */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Google reviews marquee */
+@keyframes reviews-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.reviews-track {
+    animation: reviews-scroll 50s linear infinite;
+}
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+@media (max-width: 768px) {
+    .reviews-track { animation-duration: 36s; }
+}
