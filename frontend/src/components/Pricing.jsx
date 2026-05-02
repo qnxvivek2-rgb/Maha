@@ -38,7 +38,7 @@ export default function Pricing({ services = [] }) {
                 <div className="font-heading font-bold text-lg">Price</div>
               </div>
               <div className="bg-white divide-y divide-neutral-100">
-                {services.map((s) => (
+               {(Array.isArray(services) ? services : []).map((s) => (
                   <div key={s.id} className="px-6 py-4 flex items-center justify-between hover:bg-neutral-50 transition-colors" data-testid={`pricing-row-${s.id}`}>
                     <div>
                       <div className="font-semibold text-neutral-900">{s.name}</div>

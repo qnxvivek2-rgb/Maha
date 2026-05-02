@@ -96,7 +96,7 @@ export default function BookingForm({ services = [] }) {
               <Select value={form.service} onValueChange={(v) => update("service", v)}>
                 <SelectTrigger className="mt-1.5" data-testid="booking-service-trigger"><SelectValue placeholder="Choose a service" /></SelectTrigger>
                 <SelectContent>
-                  {services.map((s) => (
+                 {(Array.isArray(services) ? services : []).map((s) => (
                     <SelectItem key={s.id} value={s.name} data-testid={`booking-service-opt-${s.id}`}>{s.name} — ₹{s.price} {s.unit}</SelectItem>
                   ))}
                 </SelectContent>

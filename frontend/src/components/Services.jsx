@@ -25,7 +25,7 @@ export default function Services({ services = [] }) {
         </div>
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {services.map((svc, idx) => {
+        {(Array.isArray(services) ? services : []).map((svc, idx) => {
             const Icon = ICONS[svc.id] || Shirt;
             return (
               <div
